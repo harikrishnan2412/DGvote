@@ -3,7 +3,7 @@ import ReactDOM from "react-dom/client";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { ChainId, ThirdwebProvider } from "@thirdweb-dev/react";
 import Landing from "./Pages/Landing/Landing";
-import Complain from "./Pages/complain.jsx";
+import Complain from "./Pages/complainbox/Complain.jsx";
 import Complainform from "./Pages/complainform/Complainform";
 import VotingPage from "./Pages/VotingPage/VotingPage.jsx"
 import "./index.css"

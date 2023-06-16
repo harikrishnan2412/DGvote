@@ -6,7 +6,7 @@ function Complainbox(props)
     return (
         <div className="main-body">
             <div className="img-complain">
-                <img src={props.img} alt="" />
+                <img src={props.img} alt="" loading="lazy" />
             </div>
             <div className="complain-content">
                 <div className="title-complain"><h2>{props.title}</h2></div>

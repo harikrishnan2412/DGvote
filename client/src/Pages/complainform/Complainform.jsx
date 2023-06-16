@@ -1,9 +1,9 @@
 import "./Complainform.css"
 import { useState } from 'react';
 import { addDoc, collection } from 'firebase/firestore';
-import { getFirestore, initializeApp } from 'firebase/app';
+import { initializeApp } from 'firebase/app';
 import { getStorage, ref, uploadBytes } from 'firebase/storage';
-import firebaseConfig from '../../firebase'; 
+import {firebaseConfig, firestore} from '../../firebase'; 
 
 const FormComponent = () => {
   const [formData, setFormData] = useState({
@@ -32,7 +32,7 @@ const FormComponent = () => {
 
     try {
       const app = initializeApp(firebaseConfig);
-      const db = getFirestore(app);
+      const db = firestore;
       const storage = getStorage(app);
 
       

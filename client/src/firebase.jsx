@@ -3,7 +3,7 @@ import { getFirestore } from "firebase/firestore";
 import { getStorage } from "firebase/storage";
 
 
-const firebaseConfig = {
+export const firebaseConfig = {
   apiKey: "AIzaSyDq1hX1pTWaA6BVI5f_opEop7lYQarcKIY",
   authDomain: "voteverse.firebaseapp.com",
   projectId: "voteverse",
@@ -13,6 +13,6 @@ const firebaseConfig = {
 };
 
 
-const app = initializeApp(firebaseConfig);
-const firestore = getFirestore(app);
-const storage = getStorage(app);
+export const app = initializeApp(firebaseConfig);
+export const firestore = getFirestore(app);
+export const storage = getStorage(app);
