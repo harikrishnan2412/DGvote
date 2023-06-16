@@ -106,7 +106,7 @@ function Complainform() {
         />
 
         <label htmlFor="desc">Description</label>
-        <input
+        <input className="diskription"
           type="textarea"
           name="desc"
           onChange={handleChange1}
@@ -118,6 +118,9 @@ function Complainform() {
 
         <button type="submit" onClick={handleUpload}>Submit</button>
       </form>
+      <div className="sidedesign">
+        <h1>"The vote is not only a right; it is also a power." </h1>
+      </div>
 
     </div>
   );

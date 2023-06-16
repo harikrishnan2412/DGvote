@@ -4,8 +4,7 @@
     flex-direction: column;
 }
 .form1{
-    font-family: 'Courier New', Courier, monospace;
-    border-radius: 25px;
+    font-family: Garnett, Helvetica, "Segoe UI", Arial, sans-serif;
     display: flex;
     flex-direction: column;
     align-items: start;
@@ -22,4 +21,36 @@
 }
 input{
     border-radius: 25px;
+}
+.diskription{
+    height: 200px;
+    width: 600px;
+}
+
+  .sidedesign {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40%;
+    height: 100vh;
+    position: absolute;
+    right: 0;
+    background: white;
+    top: 0;
+    clip-path: polygon(0% 0, 100% 0, 100% 100%, 0% 100%);
+    background-color:hsla(302,100%,72%,1);
+  background-image:
+  radial-gradient(at 50% 82%, rgb(255, 119, 232) 0px, transparent 50%),
+  radial-gradient(at 18% 76%, rgb(174, 78, 253) 0px, transparent 50%),
+  radial-gradient(at 79% 55%, hsla(204,100%,48%,1) 0px, transparent 50%),
+  radial-gradient(at 18% 25%, hsla(227,100%,59%,1) 0px, transparent 50%);
+  }
+
+.sidedesign{
+    width: 40%;
+    font-family: Garnett, Helvetica, "Segoe UI", Arial, sans-serif;
+    font-size: 2rem;
+    color: rgb(255, 255, 255);
+    text-align: center;
+    letter-spacing: -2px;
 }
