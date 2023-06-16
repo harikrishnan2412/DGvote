@@ -1,5 +1,5 @@
 import React from 'react'
-import Complainbox from '../components/Complainbox/Complainbox.jsx'
+import Complainbox from '../../components/Complainbox/Complainbox.jsx'
 
 const Complain = () => {
   return (
