@@ -77,13 +77,10 @@ button:hover {
   background: white;
   top: 0;
   clip-path: polygon(41% 0, 100% 0, 100% 100%, 0% 100%);
-  background-color: hsla(0, 0%, 0%, 1);
-  background-image: radial-gradient(
-      at 90% 19%,
-      hsla(240, 62%, 37%, 0.41) 0px,
-      transparent 50%
-    ),
-    radial-gradient(at 34% 100%, hsla(289, 92%, 26%, 0.54) 0px, transparent 50%),
-    radial-gradient(at 83% 75%, hsla(262, 73%, 56%, 0.54) 0px, transparent 50%),
-    radial-gradient(at 49% 35%, hsla(289, 66%, 45%, 0.4) 0px, transparent 50%);
+  background-color:hsla(302,100%,72%,1);
+background-image:
+radial-gradient(at 50% 82%, hsla(240,100%,69%,1) 0px, transparent 50%),
+radial-gradient(at 18% 76%, hsla(294,100%,63%,1) 0px, transparent 50%),
+radial-gradient(at 79% 55%, hsla(204,100%,48%,1) 0px, transparent 50%),
+radial-gradient(at 18% 25%, hsla(227,100%,59%,1) 0px, transparent 50%);
 }
