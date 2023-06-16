@@ -7,6 +7,7 @@ import {
   useLogout,
   useUser,
 } from "@thirdweb-dev/react";
+import { useNavigate } from "react-router-dom";
 
 const Landing = () => {
   const address = useAddress();
@@ -14,6 +15,11 @@ const Landing = () => {
   const { login } = useLogin();
   const { logout } = useLogout();
   const { user, isLoggedIn } = useUser();
+  const navigate = useNavigate();
+  const handleConnect = async () => {
+    await connect();
+    navigate("/complain");
+  };
   return (
     <div className="body">
       <div className="content">
@@ -35,9 +41,15 @@ const Landing = () => {
         {isLoggedIn ? (
           <button onClick={() => logout()}>Logout</button>
         ) : address ? (
-          <button onClick={() => login()}>Login</button>
+          <button
+            onClick={() => {
+              login();
+            }}
+          >
+            Login
+          </button>
         ) : (
-          <button onClick={() => connect()}>Connect</button>
+          <button onClick={handleConnect}>Connect</button>
         )}
       </div>
       <div className="sidedesign"></div>

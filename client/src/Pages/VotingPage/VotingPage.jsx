@@ -10,19 +10,18 @@ const VotingPage = () => {
   const { contract } = useContract(
     "0x490c2B6178D1AB291C4254B17e3e4DeDf15268F2"
   );
-  const { mutateAsync: voting } = useContractWrite(contract, "vote");
-  const { data, isLoading } = useContractRead(contract, "getCandidates");
+  const { mutateAsync: vote, isLoading2 } = useContractWrite(contract, "vote");
 
-  const publishCampaign = async (form) => {
+  const call = async (form) => {
     try {
-      console.log(form.selectedOption);
-      const data = await voting([form.selectedOption]);
-
-      console.log("contract call success", data);
-    } catch (error) {
-      console.log("contract call failure", error);
+      console.log("form", form);
+      const data = await vote({ args: [form] });
+      console.info("contract call successs", data);
+    } catch (err) {
+      console.error("contract call failure", err);
     }
   };
+  const { data, isLoading } = useContractRead(contract, "getCandidates");
 
   const getCampaigns = async () => {
     const campaigns = await contract.call("getCandidates");
@@ -40,7 +39,7 @@ const VotingPage = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     // Perform vote submission logic
-    publishCampaign({ selectedOption });
+    call(selectedOption);
   };
 
   return (
