@@ -1,0 +1,89 @@
+.body {
+  font-family: Garnett, Helvetica, "Segoe UI", Arial, sans-serif;
+  background-color: rgb(0, 0, 0);
+  min-width: 100%;
+}
+.sub-title {
+  width: 60%;
+  letter-spacing: -6px;
+  font-size: 2.7rem;
+  text-align: start;
+  font-weight: bold;
+  background: linear-gradient(90deg, #e3e3e338, #ffffff, #ffffff0f);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.content {
+  color: #9a9a9a;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 90vw;
+  height: 100vh;
+  margin-left: 5%;
+  letter-spacing: 1px;
+}
+.description {
+  margin-top: 50px;
+  font-size: 1rem;
+  font-weight: 500;
+  margin-bottom: 1rem;
+  letter-spacing: 1px;
+  width: 30%;
+  color: #ffffff7b;
+  text-transform: lowercase;
+}
+.join {
+  color: #d1cece;
+  letter-spacing: 1px;
+  margin-top: 80px;
+  font-size: 1.2rem;
+  font-weight: 100;
+}
+.title {
+  margin-bottom: 5%;
+  color: #9a9a9a;
+}
+button {
+  color: white;
+  width: 150px;
+  height: 50px;
+  border-style: none;
+  border-radius: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #4c2492;
+  margin-top: 45px;
+  width: 10%;
+}
+button:hover {
+  background: #8741ff;
+  cursor: pointer;
+  transform: scale(1.05);
+  transition: 0.3s ease-in-out;
+}
+#sideback {
+  position: absolute;
+  right: 10%;
+  top: 10%;
+  width: 500px;
+}
+.sidedesign {
+  width: 40%;
+  height: 100vh;
+  position: absolute;
+  right: 0;
+  background: white;
+  top: 0;
+  clip-path: polygon(41% 0, 100% 0, 100% 100%, 0% 100%);
+  background-color: hsla(0, 0%, 0%, 1);
+  background-image: radial-gradient(
+      at 90% 19%,
+      hsla(240, 62%, 37%, 0.41) 0px,
+      transparent 50%
+    ),
+    radial-gradient(at 34% 100%, hsla(289, 92%, 26%, 0.54) 0px, transparent 50%),
+    radial-gradient(at 83% 75%, hsla(262, 73%, 56%, 0.54) 0px, transparent 50%),
+    radial-gradient(at 49% 35%, hsla(289, 66%, 45%, 0.4) 0px, transparent 50%);
+}

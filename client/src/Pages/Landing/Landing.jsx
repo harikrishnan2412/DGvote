@@ -1,5 +1,6 @@
 import React from "react";
-import "./Landing.css"
+import "./Landing.css";
+import anime from "../../Asset/back.png";
 
 const Landing = () => {
   return (
@@ -20,9 +21,9 @@ const Landing = () => {
         <div className="description">
           <p>
             Revolutionize democracy with VoteVerse—an innovative centralized
-            voting app. <br /> Secure, transparent, and user-friendly, it enables
-            efficient elections and public opinions. Shape the world with your
-            voice. <br />
+            voting app. <br /> Secure, transparent, and user-friendly, it
+            enables efficient elections and public opinions. Shape the world
+            with your voice. <br />
             <b>Join VoteVerse today.</b>
           </p>
         </div>
@@ -31,6 +32,7 @@ const Landing = () => {
           <h3>Sign In</h3>
         </button>
       </div>
+      <div className="sidedesign"></div>
     </div>
   );
 };
