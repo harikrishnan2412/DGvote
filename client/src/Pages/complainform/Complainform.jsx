@@ -2,6 +2,7 @@ import { useState } from "react";
 import { storage, firestore } from "../../firebase";
 import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 import { addDoc, collection } from 'firebase/firestore';
+import "./Complainform.css";
 
 function Complainform() {
   const [formData, setFormData] = useState({
@@ -82,10 +83,10 @@ function Complainform() {
   };
 
   return (
-    <div>
+    <div className="bodyz">
       
 
-      <form onSubmit={handleSubmit}>
+      <form className="form1" onSubmit={handleSubmit}>
         <label htmlFor="title">Title</label>
         <input
           type="text"
