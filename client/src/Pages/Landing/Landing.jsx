@@ -1,16 +1,21 @@
 import React from "react";
 import "./Landing.css";
-import anime from "../../Asset/back.png";
+import {
+  useAddress,
+  useMetamask,
+  useLogin,
+  useLogout,
+  useUser,
+} from "@thirdweb-dev/react";
 
 const Landing = () => {
+  const address = useAddress();
+  const connect = useMetamask();
+  const { login } = useLogin();
+  const { logout } = useLogout();
+  const { user, isLoggedIn } = useUser();
   return (
     <div className="body">
-      <div className="nav">
-        <div className="nav-links">
-          <a href="#">Features</a>
-          <a href="#">Contact</a>
-        </div>
-      </div>
       <div className="content">
         <div className="title">
           <h3>VoteVerse</h3>
@@ -27,10 +32,13 @@ const Landing = () => {
             <b>Join VoteVerse today.</b>
           </p>
         </div>
-        <button>
-          <img src="" alt="" />
-          <h3>Sign In</h3>
-        </button>
+        {isLoggedIn ? (
+          <button onClick={() => logout()}>Logout</button>
+        ) : address ? (
+          <button onClick={() => login()}>Login</button>
+        ) : (
+          <button onClick={() => connect()}>Connect</button>
+        )}
       </div>
       <div className="sidedesign"></div>
     </div>
