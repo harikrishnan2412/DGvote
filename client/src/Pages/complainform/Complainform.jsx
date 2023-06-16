@@ -1,105 +1,123 @@
-import "./Complainform.css"
-import { useState } from 'react';
+import { useState } from "react";
+import { storage, firestore } from "../../firebase";
+import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 import { addDoc, collection } from 'firebase/firestore';
-import { initializeApp } from 'firebase/app';
-import { getStorage, ref, uploadBytes } from 'firebase/storage';
-import {firebaseConfig, firestore} from '../../firebase'; 
 
-const FormComponent = () => {
+function Complainform() {
   const [formData, setFormData] = useState({
-    title:'',
-    location:'',
-    desc:'',
-    image: null, // Image field
+    title: '',
+    location: '',
+    desc: '',
   });
 
-  const handleChange = (event) => {
-    if (event.target.name === 'image') {
-      setFormData({
-        ...formData,
-        image: event.target.files[0], 
-      });
-    } else {
-      setFormData({
-        ...formData,
-        [event.target.name]: event.target.value,
-      });
-    }
+  const handleChange1 = (event) => {
+    setFormData({
+      ...formData,
+      [event.target.name]: event.target.value,
+    });
   };
 
   const handleSubmit = async (event) => {
     event.preventDefault();
 
     try {
-      const app = initializeApp(firebaseConfig);
-      const db = firestore;
-      const storage = getStorage(app);
-
       
-      const docRef = await addDoc(collection(db, 'forms'), formData);
+      const db = firestore;
+
+      await addDoc(collection(db, 'forms'), formData);
 
       console.log('Form data added to Firestore');
 
-      
-      if (formData.image) {
-        const storageRef = ref(storage, `images/${docRef.id}`);
-        await uploadBytes(storageRef, formData.image);
-        console.log('Image uploaded to Firebase Storage');
-      }
-
-      
       setFormData({
-        title:'',
-        location:'',
-        desc:'',
-        image: null, // Image field
+        title: '',
+        location: '',
+        desc: '',
       });
     } catch (error) {
       console.error('Error adding form data to Firestore:', error);
     }
   };
 
+
+  // State to store uploaded file
+  const [file, setFile] = useState("");
+
+  // progress
+  const [percent, setPercent] = useState(0);
+
+  // Handle file upload event and update state
+  function handleChange(event) {
+    setFile(event.target.files[0]);
+  }
+
+  const handleUpload = () => {
+    if (!file) {
+      alert("Please upload an image first!");
+    }
+
+    const storageRef = ref(storage, `/images/${file.name}`);
+
+    // progress can be paused and resumed. It also exposes progress updates.
+    // Receives the storage reference and the file to upload.
+    const uploadTask = uploadBytesResumable(storageRef, file);
+
+    uploadTask.on(
+      "state_changed",
+      (snapshot) => {
+        const percent = Math.round(
+          (snapshot.bytesTransferred / snapshot.totalBytes) * 100
+        );
+
+        // update progress
+        setPercent(percent);
+      },
+      (err) => console.log(err),
+      () => {
+        // download url
+        getDownloadURL(uploadTask.snapshot.ref).then((url) => {
+          console.log(url);
+        });
+      }
+    );
+  };
+
   return (
-    <form onSubmit={handleSubmit}>
-      <label htmlFor="title">Title</label>
-      <input
-        type="text"
-        name="title"
-        value={formData.title}
-        onChange={handleChange}
-        required
-      />
+    <div>
+      <input type="file" onChange={handleChange} accept="/image/*" />
+      <p>{percent} "% done"</p>
 
-      <label htmlFor="location">Location</label>
-      <input
-        type="text"
-        name="location"
-        value={formData.location}
-        onChange={handleChange}
-        required
-      />
+      <form onSubmit={handleSubmit}>
+        <label htmlFor="title">Title</label>
+        <input
+          type="text"
+          name="title"
+          value={formData.title}
+          onChange={handleChange1}
+          required
+        />
 
-      <label htmlFor="image">Image</label>
-      <input
-        type="file"
-        name="image"
-        onChange={handleChange}
-        accept="image/*"
-      />
+        <label htmlFor="location">Location</label>
+        <input
+          type="text"
+          name="location"
+          value={formData.location}
+          onChange={handleChange1}
+          required
+        />
 
-      <label htmlFor="desc">description</label>
-      <input 
-        type="textarea" 
-        name="desc"
-        onChange={handleChange}
-        value={formData.desc}
-       />
+        <label htmlFor="desc">Description</label>
+        <input
+          type="textarea"
+          name="desc"
+          onChange={handleChange1}
+          value={formData.desc}
+        />
 
-      
+        <button type="submit" onClick={handleUpload}>Submit</button>
+      </form>
 
-      <button type="submit">Submit</button>
-    </form>
+    </div>
   );
-};
+}
 
-export default FormComponent;
+export default Complainform;
