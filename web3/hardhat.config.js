@@ -8,21 +8,15 @@ module.exports = {
     settings: {
       optimizer: {
         enabled: true,
+        runs: 200,
       },
     },
   },
   networks: {
-    zksync_testnet: {
-      url: "https://zksync2-testnet.zksync.dev",
-      ethNetwork: "goerli",
-      chainId: 280,
-      zksync: true,
-    },
-    zksync_mainnet: {
-      url: "https://zksync2-mainnet.zksync.io/",
-      ethNetwork: "mainnet",
-      chainId: 324,
-      zksync: true,
+    hardhat: {},
+    geoerli: {
+      url: "https://rpc.ankr.com/eth_goerli",
+      accounts: ["0x94f87f3fc7e47fefd8d9c9af393438c1d58d4ebe2960da52c17b4fb960d86a11"],
     },
   },
   paths: {

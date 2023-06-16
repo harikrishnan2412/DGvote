@@ -2,45 +2,38 @@
 pragma solidity ^0.8.9;
 
 contract Election {
-    // Model a Candidate
-    struct Candidate {
+    struct candidate {
         uint256 id;
         string name;
         uint256 voteCount;
-    } 
-
-    mapping(address => bool) public voters;
-    mapping(uint256 => Candidate) public candidates;
-    // Store Candidates Count
+    }
+    mapping(uint256 => candidate) public candidates;
     uint256 public candidatesCount;
-
-    // voted event
-    event votedEvent(uint256 indexed _candidateId);
+    mapping(address => bool) public voters;
 
     constructor() {
-        addCandidate("Joel K George");
-        addCandidate("John Doe");
+        addCandidate("Candidate 1");
+        addCandidate("Candidate 2");
     }
 
     function addCandidate(string memory _name) private {
         candidatesCount++;
-        candidates[candidatesCount] = Candidate(candidatesCount, _name, 0);
+        candidates[candidatesCount] = candidate(candidatesCount, _name, 0);
     }
 
     function vote(uint256 _candidateId) public {
-        // require that they haven't voted before
-        require(!voters[msg.sender]);
-
-        // require a valid candidate
+        require(!voters[msg.sender], "You can only vote Once");  
         require(_candidateId > 0 && _candidateId <= candidatesCount);
-
-        // record that voter has voted
-        voters[msg.sender] = true;
-
-        // update candidate vote Count
         candidates[_candidateId].voteCount++;
+    }
 
-        // trigger voted event
-        emit votedEvent(_candidateId);
+    function getCandidate(
+        uint256 _candidateId
+    ) public view returns (uint256, string memory, uint256) {
+        return (
+            candidates[_candidateId].id,
+            candidates[_candidateId].name,
+            candidates[_candidateId].voteCount
+        );
     }
 }
