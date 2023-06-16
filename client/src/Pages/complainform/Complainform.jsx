@@ -83,8 +83,7 @@ function Complainform() {
 
   return (
     <div>
-      <input type="file" onChange={handleChange} accept="/image/*" />
-      <p>{percent} "% done"</p>
+      
 
       <form onSubmit={handleSubmit}>
         <label htmlFor="title">Title</label>
@@ -112,6 +111,9 @@ function Complainform() {
           onChange={handleChange1}
           value={formData.desc}
         />
+        
+        <input type="file" onChange={handleChange} accept="/image/*" />
+        <>{percent} % done</>
 
         <button type="submit" onClick={handleUpload}>Submit</button>
       </form>
