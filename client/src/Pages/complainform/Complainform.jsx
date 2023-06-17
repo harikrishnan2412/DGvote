@@ -3,6 +3,7 @@ import { storage, firestore } from "../../firebase";
 import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 import { addDoc, collection } from 'firebase/firestore';
 import "./Complainform.css";
+import Header from "../../components/header/Header";
 
 function Complainform() {
   const [formData, setFormData] = useState({
@@ -86,7 +87,7 @@ function Complainform() {
 
   return (
     <div className="bodyz">
-
+      
 
       <form className="form1" onSubmit={handleSubmit}>
         <label htmlFor="title">Title</label>
