@@ -3,6 +3,7 @@ import { storage, firestore } from "../../firebase";
 import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
 import { addDoc, collection } from 'firebase/firestore';
 import "./Complainform.css";
+import Header from "../../components/header/Header";
 
 function Complainform() {
   const [formData, setFormData] = useState({
@@ -84,6 +85,13 @@ function Complainform() {
 
   return (
     <div className="bodyz">
+      <Header 
+        path1='/vote'
+        navlink1='Vote here'
+        path2='/complain'
+        navlink2='see complaints'
+
+      />
       
 
       <form className="form1" onSubmit={handleSubmit}>

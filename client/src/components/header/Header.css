@@ -1,0 +1,10 @@
+.header-body
+{
+    min-width: 100vw;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    z-index: 1000;
+    position: fixed;
+    background-color: black;
+}

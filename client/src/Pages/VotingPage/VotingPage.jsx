@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from "react";
+
 import {
   useContract,
   useContractRead,
   useContractWrite,
 } from "@thirdweb-dev/react";
+import Header from "../../components/header/Header";
 
 const VotingPage = () => {
   const [selectedOption, setSelectedOption] = useState("");
@@ -44,6 +46,14 @@ const VotingPage = () => {
 
   return (
     <div>
+      <Header 
+        path1='/complain'
+        navlink1='see complaints'
+        path2='/complainform'
+        navlink2='post complains'
+
+      />
+
       <h1>Voting Page</h1>
       <form onSubmit={handleSubmit}>
         <h3>Vote for your preferred option:</h3>
