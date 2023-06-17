@@ -1,0 +1,31 @@
+.complaint-card {
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 20px;
+}
+.img-complain img {
+  border-radius: 15px;
+  width: 600px;
+  height: 300px;
+  object-fit: cover;
+}
+.img-complain h2 {
+  position: absolute;
+  z-index: 10;
+  bottom: 10px;
+  left: 10px;
+  text-transform: capitalize;
+}
+.img-complain p {
+  position: absolute;
+  font-size: 0.8rem;
+  bottom: 11%;
+  left: 10px;
+  text-transform: capitalize;
+}
+.img-complain {
+  position: relative;
+  font-family: sans-serif;
+}

@@ -30,7 +30,7 @@
   margin-bottom: 1rem;
   letter-spacing: 1px;
   width: 30%;
-  color: #ffffff7b;
+  color: #e3e2e27b;
   text-transform: lowercase;
 }
 .join {
@@ -42,7 +42,9 @@
 }
 .title {
   margin-bottom: 5%;
-  color: #9a9a9a;
+  color: #ddcbff;
+  text-transform: lowercase;
+  letter-spacing: -1px;
 }
 button {
   color: white;
@@ -77,10 +79,13 @@ button:hover {
   background: white;
   top: 0;
   clip-path: polygon(41% 0, 100% 0, 100% 100%, 0% 100%);
-  background-color:hsla(302,100%,72%,1);
-background-image:
-radial-gradient(at 50% 82%, hsla(240,100%,69%,1) 0px, transparent 50%),
-radial-gradient(at 18% 76%, hsla(294,100%,63%,1) 0px, transparent 50%),
-radial-gradient(at 79% 55%, hsla(204,100%,48%,1) 0px, transparent 50%),
-radial-gradient(at 18% 25%, hsla(227,100%,59%,1) 0px, transparent 50%);
+  background-color: hsla(302, 100%, 72%, 1);
+  background-image: radial-gradient(
+      at 50% 82%,
+      hsla(240, 100%, 69%, 1) 0px,
+      transparent 50%
+    ),
+    radial-gradient(at 18% 76%, hsla(294, 100%, 63%, 1) 0px, transparent 50%),
+    radial-gradient(at 79% 55%, hsla(204, 100%, 48%, 1) 0px, transparent 50%),
+    radial-gradient(at 18% 25%, hsla(227, 100%, 59%, 1) 0px, transparent 50%);
 }

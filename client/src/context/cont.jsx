@@ -6,8 +6,6 @@ import {
   useMetamask,
   useContractWrite,
 } from "@thirdweb-dev/react";
-import { ethers } from "ethers";
-import { EditionMetadataWithOwnerOutputSchema } from "@thirdweb-dev/sdk";
 
 const StateContext = createContext();
 

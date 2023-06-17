@@ -1,24 +1,13 @@
-.complainbox {
-    background:linear-gradient(90deg,hsl(0, 0%, 14%), #131313);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: start;
-    width: 30%;
-    height: 50%;
-    padding: 30px;
-    margin-top: 300px;
-    margin-left: 400px;
-    border-radius: 10px;
-    color: rgb(238, 238, 238);
-    font-family: Garnett, Helvetica, "Segoe UI", Arial, sans-serif;
-    
-    
-    
+.complainbody {
+  background: black;
+  height: max-content;
+  min-height: 100vh;
+  width: 100%;
 }
-img {
-    border-radius: 10px;
-    width: 100%;
-    height: 100%;
-    margin-top: 20px;
+.complaint-holder {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  justify-content: center;
+  width: 100%;
 }

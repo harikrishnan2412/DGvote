@@ -1,16 +1,16 @@
 import { useState } from "react";
 import { storage, firestore } from "../../firebase";
 import { ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
-import { addDoc, collection } from 'firebase/firestore';
+import { addDoc, collection } from "firebase/firestore";
 import "./Complainform.css";
 import Header from "../../components/header/Header";
 
 function Complainform() {
   const [formData, setFormData] = useState({
-    title: '',
-    location: '',
-    desc: '',
-    photoUrl: ''
+    title: "",
+    location: "",
+    desc: "",
+    photoUrl: "",
   });
 
   const handleChange1 = (event) => {
@@ -33,22 +33,22 @@ function Complainform() {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-  
+
     if (!file) {
       alert("Please upload an image first!");
       return;
     }
-  
+
     const storageRef = ref(storage, `/images/${file.name}`);
     const uploadTask = uploadBytesResumable(storageRef, file);
-  
+
     uploadTask.on(
       "state_changed",
       (snapshot) => {
         const percent = Math.round(
           (snapshot.bytesTransferred / snapshot.totalBytes) * 100
         );
-  
+
         // update progress
         setPercent(percent);
       },
@@ -57,38 +57,31 @@ function Complainform() {
         try {
           const downloadURL = await getDownloadURL(uploadTask.snapshot.ref);
           console.log(downloadURL);
-  
+
           const updatedFormData = {
             ...formData,
-            photoUrl: downloadURL
+            photoUrl: downloadURL,
           };
-  
+
           const db = firestore;
-          await addDoc(collection(db, 'forms'), updatedFormData);
-          console.log('Form data added to Firestore');
-  
+          await addDoc(collection(db, "forms"), updatedFormData);
+          console.log("Form data added to Firestore");
+
           setFormData({
-            title: '',
-            location: '',
-            desc: '',
-            photoUrl: ''
+            title: "",
+            location: "",
+            desc: "",
+            photoUrl: "",
           });
         } catch (error) {
-          console.error('Error adding form data to Firestore:', error);
+          console.error("Error adding form data to Firestore:", error);
         }
       }
     );
   };
-  
-
-  
-
-
 
   return (
     <div className="bodyz">
-      
-
       <form className="form1" onSubmit={handleSubmit}>
         <label htmlFor="title">Title</label>
         <input
@@ -109,7 +102,8 @@ function Complainform() {
         />
 
         <label htmlFor="desc">Description</label>
-        <input className="diskription"
+        <input
+          className="diskription"
           type="textarea"
           name="desc"
           onChange={handleChange1}
@@ -121,10 +115,9 @@ function Complainform() {
 
         <button type="submit">Submit</button>
       </form>
-      <div className="sidedesign">
+      <div className="sidedesign2">
         <h1>"The vote is not only a right; it is also a power." </h1>
       </div>
-
     </div>
   );
 }
