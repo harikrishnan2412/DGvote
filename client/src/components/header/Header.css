@@ -5,8 +5,9 @@
   justify-content: center;
   z-index: 1000;
   position: fixed;
-  background-color: black;
+  background-color: transparent;
   top: 0;
+  padding: 30px 10px;
 }
 .navlinks {
   display: flex;

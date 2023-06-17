@@ -82,6 +82,12 @@ function Complainform() {
 
   return (
     <div className="bodyz">
+      <Header
+        path1="/complain"
+        navlink1="Feed"
+        path2="/complainform"
+        navlink2="Complaint"
+      />
       <form className="form1" onSubmit={handleSubmit}>
         <label htmlFor="title">Title</label>
         <input
