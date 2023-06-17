@@ -6,6 +6,7 @@ import {
   useContractWrite,
 } from "@thirdweb-dev/react";
 import Header from "../../components/header/Header";
+import "./VotingPage.css";
 
 const VotingPage = () => {
   const [selectedOption, setSelectedOption] = useState("");
@@ -45,34 +46,37 @@ const VotingPage = () => {
   };
 
   return (
-    <div>
-      <Header 
-        path1='/complain'
-        navlink1='see complaints'
-        path2='/complainform'
-        navlink2='post complains'
-
+    <div className="votinpagebody">
+      <Header
+        path1="/complain"
+        navlink1="Feed"
+        path2="/complainform"
+        navlink2="Complaint"
       />
-
-      <h1>Voting Page</h1>
-      <form onSubmit={handleSubmit}>
+      <form className="pref" onSubmit={handleSubmit}>
         <h3>Vote for your preferred option:</h3>
-        {isLoading ? (
-          <p>Loading campaigns...</p>
-        ) : (
-          data.map((campaign) => (
-            <label key={campaign.id}>
-              <input
-                type="radio"
-                name="option"
-                value={campaign.id}
-                checked={selectedOption === campaign.id.toString()}
-                onChange={(e) => setSelectedOption(e.target.value)}
-              />
-              {campaign.name}
-            </label>
-          ))
-        )}
+        <div className="option-wrapper">
+          {isLoading ? (
+            <p>Loading campaigns...</p>
+          ) : (
+            <div className="inputalign">
+              {data.map((campaign) => (
+                <label key={campaign.id} className="option-label">
+                  {campaign.name}
+                  <input
+                    type="radio"
+                    name="option"
+                    className="input-dot"
+                    value={campaign.id}
+                    checked={selectedOption === campaign.id.toString()}
+                    onChange={(e) => setSelectedOption(e.target.value)}
+                  />
+                  <span className="custom-radio"></span>
+                </label>
+              ))}
+            </div>
+          )}
+        </div>
         <br />
         <br />
         <button type="submit" onSubmit={handleSubmit}>

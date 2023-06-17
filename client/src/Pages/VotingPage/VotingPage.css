@@ -1,0 +1,38 @@
+.votinpagebody {
+  background-color: black;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  width: 100vw;
+}
+.pref {
+  font-family: Garnett, Helvetica, "Segoe UI", Arial, sans-serif;
+  font-size: 3rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.pref h3 {
+  font-size: 1.5rem;
+  font-weight: 400;
+  margin-bottom: 17%;
+}
+
+label {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+}
+.inputalign {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+}
+.input-dot {
+  color: aqua;
+}

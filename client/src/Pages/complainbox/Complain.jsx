@@ -1,10 +1,18 @@
 import React from "react";
 import Complainbox from "../../components/Complainbox/Complainbox.jsx";
 import "./Complain.css";
+import Header from "../../components/header/Header.jsx";
 
 const Complain = () => {
   return (
     <div className="complainbody">
+      <Header
+        path1="/vote"
+        navlink1="Vote"
+        path2="/complainform"
+        navlink2="Complaint"
+      />
+      <h2 id="greet-top">What's happening around you</h2>
       <div className="complaint-holder">
         <Complainbox
           desc="joel is from kundara"

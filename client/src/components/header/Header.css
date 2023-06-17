@@ -1,10 +1,24 @@
-.header-body
-{
-    min-width: 100vw;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    z-index: 1000;
-    position: fixed;
-    background-color: black;
+.header-body {
+  min-width: 100vw;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  z-index: 1000;
+  position: fixed;
+  background-color: black;
+  top: 0;
+}
+.navlinks {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 20px;
+  text-decoration: none;
+}
+.links-head {
+  text-decoration: none;
+  color: white;
+  font-family: sans-serif;
+  text-transform: lowercase;
+  font-weight: 900;
+  font-size: 1.1rem;
 }
