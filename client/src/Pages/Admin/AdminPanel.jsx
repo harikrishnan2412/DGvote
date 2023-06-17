@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { useContract, useContractRead } from "@thirdweb-dev/react";
-
+import "./AdminPanel.css";
 const AdminPanel = () => {
   const { contract } = useContract(
     "0x57Ff8B5851100A1f39BAF05a96597434d2760807"
@@ -18,7 +18,7 @@ const AdminPanel = () => {
     getCampaigns();
   }, []);
   return (
-    <div>
+    <div className="joel">
       {isLoading ? (
         <p>Loading campaigns...</p>
       ) : (
