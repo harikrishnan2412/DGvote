@@ -8,7 +8,7 @@ import {
 const VotingPage = () => {
   const [selectedOption, setSelectedOption] = useState("");
   const { contract } = useContract(
-    "0x490c2B6178D1AB291C4254B17e3e4DeDf15268F2"
+    "0x28598F1F5A5a85558405B9CA6a7135079FB361cF"
   );
   const { mutateAsync: vote, isLoading2 } = useContractWrite(contract, "vote");
 
