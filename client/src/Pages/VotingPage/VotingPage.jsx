@@ -11,7 +11,7 @@ import "./VotingPage.css";
 const VotingPage = () => {
   const [selectedOption, setSelectedOption] = useState("");
   const { contract } = useContract(
-    "0x28598F1F5A5a85558405B9CA6a7135079FB361cF"
+    "0x57Ff8B5851100A1f39BAF05a96597434d2760807"
   );
   const { mutateAsync: vote, isLoading2 } = useContractWrite(contract, "vote");
 
